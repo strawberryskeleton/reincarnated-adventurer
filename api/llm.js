@@ -33,7 +33,7 @@ export default async function handler(req, res) {
             {
             "task": "",
             "difficulty": 1-5,
-            "category": "",
+            "category": [],
             "estimatedMinutes": 5-60,
             "xp": 25-150,
             }
