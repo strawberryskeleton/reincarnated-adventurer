@@ -1,7 +1,7 @@
-import { OpenAI } from "openai";
-import dotenv from "dotenv"
-import { json } from "node:stream/consumers";
-dotenv.config()
+import OpenAI from "openai";
+// import dotenv from "dotenv"
+// import { json } from "node:stream/consumers";
+// dotenv.config()
 
 // console.log(process.env.GROQ_API_KEY);
 
@@ -12,15 +12,23 @@ const client = new OpenAI({
 
 // console.log(client)
 
-const completion = await client.chat.completions.create({
-    model: "qwen/qwen3-32b",
-    temperature: 1.2,
-    messages: [
-        {
-            role: "system",
-            content: `You are a generator of daily quests.
+
+// console.log(quest)
+
+export default async function handler(req, res) {
+    try {
+        const completion = await client.chat.completions.create({
+            model: "qwen/qwen3-32b",
+            temperature: 1.2,
+            reasoning_effort: "none",
+            messages: [
+                {
+                    role: "system",
+                    content: `You are a generator of daily quests.
 
             Return ONLY valid JSON.
+            Do not wrap it in markdown.
+            Do not include any explanation.
 
             {
             "task": "",
@@ -36,15 +44,23 @@ const completion = await client.chat.completions.create({
             - Creative
             - Complete in one day
             - Do not repeat common quests too often`
-        },
-        {
-            role: "user",
-            content: "Generate one daily quest."
-        }
-    ]
-})
+                },
+                {
+                    role: "user",
+                    content: "Generate one daily quest."
+                }
+            ]
+        })
 
-const content = completion.choices[0].message.content
-const quest = JSON.parse(content)
+        const content = completion.choices[0].message.content
+        const quest = JSON.parse(content)
 
-console.log(quest)
+        res.status(200).json(quest);
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({
+        error: "Failed to generate quest"
+        });
+    }
+}
