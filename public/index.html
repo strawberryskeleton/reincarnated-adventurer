@@ -9,13 +9,11 @@
 </head>
 <body>
     <!-- HEADER -->
-    <header>
-
-    </header>
+    <header></header>
     
     <!-- MAIN -->
     <main>
-        <div class="text-dialog-box">
+        <div class="text-dialog-box intro-text">
 
             <div class="profile">
                 <div class="profile-img">
@@ -31,7 +29,7 @@
         </div>
 
 
-        <div class="text-dialog-box" id="quest-box">
+        <div class="text-dialog-box quest-text" id="quest-box">
 
             <div class="profile">
                 <div class="profile-img">
@@ -41,14 +39,27 @@
             </div>
 
             <div class="dialog">
-                <p>Hi Adventurer!</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi in maxime beatae expedita natus animi.</p>
+                <p class="dialog-title">Your Quest Is:</p>
+
+                <div class="quest-info">
+                    <p>Title:  <span id="qtitle">something someting</span></p>
+                    <p>Category:  <span id="qtitle">something else</span></p>
+                    <p>Difficulty:  <span id="qtitle">3</span></p>
+                    <p>XP:  <span id="qtitle">25</span></p>
+                </div>
+
+                <div class="gen-btn">
+                    <button id="generate-btn">Get Quest</button>
+                </div>
+
             </div>
         </div>
 
 
     </main>
 
+    <!-- FOOTER -->
+    <footer></footer>
 
 </body>
 </html>
