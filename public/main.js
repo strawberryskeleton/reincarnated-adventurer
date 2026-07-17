@@ -19,13 +19,13 @@ const qXp = document.getElementById('qxp')
 
 // console.log(quest);
 
-let isQuestGenerated = true
+let isQuestGenerated = false
 let xp = parseInt(localStorage.getItem('xp')) || 0
-let level = localStorage.getItem('level') || 1
-let currentQuestXp = 20
+let level = localStorage.getItem('level') || "Novice"
+let currentQuestXp = 0
 
 userXpDisplay.textContent = String(xp).padStart(3, '0')
-userLevelDisplay.textContent = String(level).padStart(2, '0')
+userLevelDisplay.textContent = level
 
 
 generateBtn.addEventListener('click', () => {
@@ -66,10 +66,33 @@ if (isQuestGenerated) {
 }
 
 function completeQuest () {
+
     xp += parseInt(currentQuestXp)
     localStorage.setItem('xp', xp)
     userXpDisplay.textContent = xp
     isQuestGenerated = false
     doneBtn.disabled = true
     generateBtn.disabled = false
+
+    updateLevel()
+}
+
+function updateLevel () {
+
+    if (xp >= 0 && xp <= 100) {
+        level = "Novice"
+    } else if (xp > 100 && xp <= 250) {
+        level = "Aprentice"
+    } else if (xp > 250 && xp <= 400) {
+        level = "Experienced"
+    } else if (xp > 400 && xp <= 600) {
+        level = "Elite"
+    } else if (xp > 600 && xp <= 850) {
+        level = "Master"
+    } else if (xp > 850 && xp <= 1000) {
+        level = "Mythic"
+    }
+    
+    localStorage.setItem('level', level)
+    userLevelDisplay.textContent = level
 }
