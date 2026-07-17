@@ -1,5 +1,5 @@
 # reincarnated-adventurer
-"the time i got reincarnated as guild adventurer and went on daily quests"
+"the time i got reincarnated as a guild adventurer and went on daily quests"
 
 things i need to learn:
 - vercel deployemnt
