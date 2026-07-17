@@ -21,14 +21,20 @@ export default async function handler(req, res) {
             model: "qwen/qwen3-32b",
             temperature: 1.2,
             reasoning_effort: "none",
+            response_format: { type: "json_object" },
             messages: [
                 {
                     role: "system",
                     content: `You are a generator of daily quests.
 
-            Return ONLY valid JSON.
-            Do not wrap it in markdown.
-            Do not include any explanation.
+            Return ONLY a raw JSON object.
+
+            Do NOT:
+            - wrap it in \`\`\`json
+            - use markdown
+            - include explanations
+            - include comments
+            - include any text before or after the JSON
 
             {
             "task": "",
@@ -53,14 +59,19 @@ export default async function handler(req, res) {
         })
 
         const content = completion.choices[0].message.content
-        const quest = JSON.parse(content)
+        const quest = JSON.parse(content.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim())
 
         res.status(200).json(quest);
     }
     catch (err) {
-        console.error(err);
-        res.status(500).json({
-        error: "Failed to generate quest"
-        });
+        // console.error(err);
+        // res.status(500).json({
+        // error: "Failed to generate quest"
+        // });
+         console.error(err);
+
+    res.status(500).json({
+        error: err.message
+    });
     }
 }

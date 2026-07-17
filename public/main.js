@@ -11,16 +11,16 @@ const qDifficulty = document.getElementById('qdifficulty')
 const qTime = document.getElementById('qtime')
 const qXp = document.getElementById('qxp')
 
-// console.log(generateBtn)
-// console.log(quest)
-
 // const response = await fetch("/api/llm");
 // const quest = await response.json();
 
 // console.log(quest);
 
+// localStorage.setItem('xp', 0)
+// localStorage.setItem('level', "Novice")
+
 let isQuestGenerated = false
-let xp = parseInt(localStorage.getItem('xp')) || 0
+let xp = Number(localStorage.getItem('xp')) || 0
 let level = localStorage.getItem('level') || "Novice"
 let currentQuestXp = 0
 
@@ -33,7 +33,7 @@ generateBtn.addEventListener('click', () => {
     // isQuestGenerated = true
 })
 
-async function showQuest () {
+async function showQuest() {
     generateBtn.disabled = true
 
     const response = await fetch("/api/llm");
@@ -56,16 +56,21 @@ async function showQuest () {
     qXp.textContent = currentQuestXp
 
     isQuestGenerated = true
-}
-
-if (isQuestGenerated) {
     doneBtn.disabled = false
-    doneBtn.addEventListener('click', () => {
-        completeQuest()
-    })
 }
 
-function completeQuest () {
+
+
+doneBtn.addEventListener('click', () => {
+    if (isQuestGenerated) {
+        completeQuest()
+    }
+})
+
+function completeQuest() {
+    const questXP = Number(currentQuestXp);
+
+    if (Number.isNaN(questXP)) return
 
     xp += parseInt(currentQuestXp)
     localStorage.setItem('xp', xp)
@@ -77,7 +82,7 @@ function completeQuest () {
     updateLevel()
 }
 
-function updateLevel () {
+function updateLevel() {
 
     if (xp >= 0 && xp <= 100) {
         level = "Novice"
@@ -92,7 +97,7 @@ function updateLevel () {
     } else if (xp > 850 && xp <= 1000) {
         level = "Mythic"
     }
-    
+
     localStorage.setItem('level', level)
     userLevelDisplay.textContent = level
 }
