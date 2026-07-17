@@ -16,8 +16,14 @@ const qXp = document.getElementById('qxp')
 
 // console.log(quest);
 
+let isQuestGenerated = false
+let xp = localStorage.getItem('xp') || 0
+let level = localStorage.getItem('level') || 1
+let currentQuestXp = 0
+
 generateBtn.addEventListener('click', () => {
     showQuest()
+    isQuestGenerated = true
 })
 
 async function showQuest () {
@@ -26,14 +32,18 @@ async function showQuest () {
 
     console.log(quest);
 
-    qTask.textContent = quest.task
     // let categories = ""
     // quest.category.forEach(cat => {
     //     categories += `${cat} | `
     // });
     // qCategory.textContent = categories
+
+    qTask.textContent = quest.task
     qCategory.textContent = quest.category
     qDifficulty.textContent = quest.difficulty
     qTime.textContent = quest.estimatedMinutes + " mins"
-    qXp.textContent = quest.xp
+
+    currentQuestXp = quest.xp
+    qXp.textContent = currentQuestXp
 }
+
