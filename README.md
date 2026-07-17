@@ -1,30 +1,38 @@
-# reincarnated-adventurer
-"the time i got reincarnated as a guild adventurer and went on daily quests"
+# The Time I Got Reincarnated As A Guild Adventurer And Went On Daily Quests
 
-things i need to learn:
-- vercel deployemnt
-- how to integrate llm into project
-- making backend
+> i think i'm watching too many animes. i need to stop thinking of such long names. (click-slime is naother project with a name like this)
 
-to do:
-[-] create ui
-[-] create llm api call
-[-] integrate both
-[-] touch-ups
-[-] deployment
-[-] bug fixing (cuz it's not gonna be deployed in one go....)
+You are a Guild Adventurer (reincarnated). You will get Quests from the guild master with a set xp. You need to complete the quest to obtain the xp and level up your rank.
 
+Live Demo: [https://reincarnated-adventurer-opal.vercel.app/](https://reincarnated-adventurer-opal.vercel.app/)
 
-features i want:
-- ai generated quests
-- save xp / level info in localStorage
-- aesthetic looking website (find assets on pinterest) --> pixel art theme ig
-- accept quest or regenerate quest option
-- mark as complete option in generated quest
+## Features
+- Quests are generated using Groq API
+- XP/Rank are stored in localStorage so progress is saved
+- Aesthetic Looking website
+- Mark As Complete button to get the xp credited
+
+## Stuff I Learnt
+- first made an app with a backend / live api call
+- learnt thow to integrate llm into a project
+- first time deployed an ap on vercel
+- learnt how to keep your api keys secret (using .env, .gitignore, and not keeping them in frontend side)
+- project structure for keeping the frontend and backend separate (didn't use since current strcuture was easily deployed on vercel)
 
 
+## Screenshots
+![project screenshot](./project_screenshot.png)
 
-https://codepen.io/Founts/pen/AJyVOr
-https://projects.verou.me/bubbly/
-https://in.pinterest.com/pin/422281211191339/
-https://dndplaybook.com/npc-generator/guild-master?gender=male
+
+
+## Credits
+- made by me
+- Chat Bubble Arrow UI: [https://projects.verou.me/bubbly/](https://projects.verou.me/bubbly/)
+- Background image: [https://in.pinterest.com/pin/422281211191339/](https://in.pinterest.com/pin/422281211191339/)
+- Guild Master Name From: [https://dndplaybook.com/npc-generator/guild-master?gender=male](https://dndplaybook.com/npc-generator/guild-master?gender=male)
+
+> ### AI USAGE
+> - learnt how to make backend
+> - learnt about the appropriate project structure for projects containng frontend and backend
+> - a lot of the llm integration code is ai generated. however i edited the prompt myself and understood the entire code. will make more projects with llm inetgration to better my learning
+> - debugging help with connecting frontend with backend (understood how both of these work and connect toghther)
