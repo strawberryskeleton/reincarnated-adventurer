@@ -27,3 +27,4 @@ features i want:
 https://codepen.io/Founts/pen/AJyVOr
 https://projects.verou.me/bubbly/
 https://in.pinterest.com/pin/422281211191339/
+https://dndplaybook.com/npc-generator/guild-master?gender=male
