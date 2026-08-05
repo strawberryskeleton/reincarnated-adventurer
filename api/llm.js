@@ -18,7 +18,7 @@ const client = new OpenAI({
 export default async function handler(req, res) {
     try {
         const completion = await client.chat.completions.create({
-            model: "qwen/qwen3-32b",
+            model: "qwen/qwen3.6-27b",
             temperature: 1.2,
             reasoning_effort: "none",
             response_format: { type: "json_object" },
