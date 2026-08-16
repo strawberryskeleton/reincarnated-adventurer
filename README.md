@@ -24,6 +24,11 @@ Live Demo: [https://reincarnated-adventurer-opal.vercel.app/](https://reincarnat
 ![project screenshot](./project_screenshot.png)
 
 
+## Local Development
+1. clone this github repo to your device
+2. run (by double clicking) `index.html` from the root/ directory
+   > all assets needed are included in the repo, and running the project locally does not need any further changes
+
 
 ## Credits
 - made by me
