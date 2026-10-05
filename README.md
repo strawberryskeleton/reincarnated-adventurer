@@ -6,6 +6,7 @@ You are a Guild Adventurer (reincarnated). You will get Quests from the guild ma
 
 Live Demo: [https://reincarnated-adventurer-opal.vercel.app/](https://reincarnated-adventurer-opal.vercel.app/)
 
+
 ## Features
 - Quests are generated using Groq API
 - XP/Rank are stored in localStorage so progress is saved
@@ -41,3 +42,4 @@ Live Demo: [https://reincarnated-adventurer-opal.vercel.app/](https://reincarnat
 > - learnt about the appropriate project structure for projects containng frontend and backend
 > - a lot of the llm integration code is ai generated. however i edited the prompt myself and understood the entire code. will make more projects with llm inetgration to better my learning
 > - debugging help with connecting frontend with backend (understood how both of these work and connect toghther)
+> - took help to migrate code suing 'groq console' to using 'google ai studio'
